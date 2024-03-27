@@ -1,23 +1,48 @@
-import ForecastChart from "@/components/ForecastChart";
+"use client";
 import Header from "@/components/Header";
 
-import React from "react";
-import { parse } from "papaparse";
-import * as d3 from "d3";
-import LineChartTest from "@/components/LineChartTest/mutiplelinechart/LineChart";
+import {
+  dataDropMenu,
+  Reservation_Forecast_Thismonth,
+  Reservation_Forecast_Threemonths,
+} from "@/constants";
+import { useState } from "react";
+import { DropDownModel } from "@/models/reservation";
+import DropdownReservation from "@/components/DropdownReservation";
 
-async function ReservationForecast() {
-  d3.csv(
-    "https://gist.githubusercontent.com/jksofm/416313cb68709557e71dae1b6e664040/raw/e063e7d9f29a75df586611d606dc41ffc4663b56/forecast_this_month.csv"
-  ).then((data) => {
-    console.log(data);
-  });
+import LineChart from "@/components/LineChart/mutiplelinechart/LineChart";
 
+function ReservationForecast() {
+  const [choose, setChoose] = useState<number>(0);
   return (
-    <div>
+    <div className="">
       <Header title="Reservation Forecast" />
-      {/* <ForecastChart /> */}
-      {/* <LineChartTest dateFormat="%Y%m%d" height="500" legendAxisY="Price, €" /> */}
+      <div className=" lg:pt-6 2xl:pt-4 pt-0 lg:pb-[100px] md:pb-[50px] pb-[30px] 2xl:pb-[180px] sm:pt-10 sm:mt-2 mt-8">
+        <div className="flex justify-center custom:gap-8 gap-4 mb-4 custom:flex-row flex-col">
+          <p className="lg:text-base-bold text-subtle-semibold md:text-small-semibold px-3 py-3 text-center text-white bg-primary-500">
+            Forecast Total Occ, Arr .Rooms, Dep. Rooms Count
+          </p>
+          <DropdownReservation
+            choose={choose}
+            setChoose={setChoose}
+            data={dataDropMenu}
+          />
+        </div>
+        {dataDropMenu.map((item: DropDownModel) => {
+          if (item.id === choose) {
+            return (
+              <LineChart
+                dateFormat="%Y%m%d"
+                data={item.data}
+                choose={choose}
+                legendAxisY="Value"
+                startDate={item.startDate}
+                endDate={item.endDate}
+              />
+            );
+          }
+        })}
+      </div>
     </div>
   );
 }

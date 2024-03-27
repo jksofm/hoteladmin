@@ -1,6 +1,7 @@
 "use client";
 
 import { sidebarLinks } from "@/constants";
+import { LinkModel } from "@/models/common";
 import { SignedIn, SignOutButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,16 +13,17 @@ import { useSearchParams } from "next/navigation";
 const LeftSidebar = () => {
   const router = useRouter();
   const pathname = usePathname();
-  const isPeriodPage = pathname === "/perioddetail";
-  // console.log("perioddetail", isPeriodPage);
+  const isPeriodPageAndReservation =
+    pathname === "/perioddetail" || pathname === "/reservationforecast";
+  // console.log("perioddetail", isPeriodPageAndReservation);
   //   const { userId } = useAuth();
   //   const { organization } = useOrganization();
   // console.log(process.env.TEST);
   return (
     <section
       className={`custom-scrollbar ${
-        isPeriodPage ? "hidden" : "sticky"
-      } max-md:hidden leftsidebar`}
+        isPeriodPageAndReservation ? "hidden" : "sticky"
+      } max-lg:hidden leftsidebar`}
     >
       <div className="lg:flex hidden flex-row mx-auto items-center gap-4 mb-10">
         <div className="p-3 bg-primary-500 rounded-sm">
@@ -41,7 +43,7 @@ const LeftSidebar = () => {
         </h1>
       </div>
       <div className="flex w-full flex-1 flex-col gap-6 px-8">
-        {sidebarLinks.map((link, item) => {
+        {sidebarLinks.map((link: LinkModel, item) => {
           //   const isActive =
           //     (pathname.includes(link.route) && link.route.length > 1) ||
           //     pathname === link.route;

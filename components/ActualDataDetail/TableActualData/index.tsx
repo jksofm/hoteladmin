@@ -43,11 +43,11 @@ function TableActualData({ currentData }: { currentData: propertyItem[] }) {
   return (
     <div className="">
       <div className="h-full bg-white flex items-center justify-center py-10">
-        <div className="2xl:max-w-[1300px] max-w-[700px] md:max-w-[700px] xl:max-w-[1000px] lg:max-w-[750px] overflow-y-auto">
+        <div className="2xl:max-w-[1300px] max-w-[700px] md:max-w-[700px] xl:max-w-[1000px] custom:max-w-[750px] lg:max-w-[800px] overflow-y-auto">
           {/* className="lg:min-w-[1022px] xl:min-w-[1230px] 2xl:min-w-[1530px] */}
           <div className="flex items-center">
             <div className="">
-              <table className="md:inline-table w-full flex flex-row md:bg-white overflow-hidden ">
+              <table className="text-subtle-medium lg:text-base-regular md:inline-table w-full flex flex-row md:bg-white overflow-hidden ">
                 <thead className="text-black">
                   {newArr?.map((data, index) => (
                     <tr
@@ -56,28 +56,28 @@ function TableActualData({ currentData }: { currentData: propertyItem[] }) {
                       }`}
                       key={index}
                     >
-                      <th className="md:py-3 md:px-5 py-3 px-5 sm:py-5 sm:px-12 text-center md:text-left border border-b rounded-tl-lg md:rounded-none">
+                      <th className="md:py-3 md:px-5 py-3 px-5 sm:py-5 sm:px-12 text-center lg:text-left border border-b rounded-tl-lg md:rounded-none">
                         Property Code
                       </th>
-                      <th className="md:py-3 md:px-5 py-3 px-5 sm:py-5 sm:px-12 text-center md:text-left border border-b rounded-tl-lg md:rounded-none">
+                      <th className="md:py-3 md:px-5 py-3 px-5 sm:py-5 sm:px-12 text-center lg:text-left border border-b rounded-tl-lg md:rounded-none">
                         Total Rooms
                       </th>
-                      <th className="md:py-3 md:px-5 py-3 px-5 sm:py-5 sm:px-12 text-center md:text-left border border-b">
+                      <th className="md:py-3 md:px-5 py-3 px-5 sm:py-5 sm:px-12 text-center lg:text-left border border-b">
                         Room Revenue
                       </th>
-                      <th className="md:py-3 md:px-5 py-3 px-5 sm:py-5 sm:px-12 text-center md:text-left border border-b">
+                      <th className="md:py-3 md:px-5 py-3 px-5 sm:py-5 sm:px-12 text-center lg:text-left border border-b">
                         F&B Revenue
                       </th>
-                      <th className="md:py-3 md:px-5 py-3 px-5 sm:py-5 sm:px-12 text-center md:text-left border border-b">
+                      <th className="md:py-3 md:px-5 py-3 px-5 sm:py-5 sm:px-12 text-center lg:text-left border border-b">
                         Other Revenue
                       </th>
-                      <th className="md:py-3 md:px-5 py-3 px-5 sm:py-5 sm:px-12 text-center md:text-left border border-b">
+                      <th className="md:py-3 md:px-5 py-3 px-5 sm:py-5 sm:px-12 text-center lg:text-left border border-b">
                         Total Revenue
                       </th>{" "}
-                      <th className="md:py-3 md:px-5 py-3 px-5 sm:py-5 sm:px-12 text-center md:text-left border border-b">
+                      <th className="md:py-3 md:px-5 py-3 px-5 sm:py-5 sm:px-12 text-center lg:text-left border border-b">
                         Occupancy(%)
                       </th>{" "}
-                      <th className="md:py-3 md:px-5 py-3 px-5 sm:py-5 sm:px-12 text-center md:text-left border border-t rounded-bl-lg md:rounded-none">
+                      <th className="md:py-3 md:px-5 py-3 px-5 sm:py-5 sm:px-12 text-center lg:text-left border border-t rounded-bl-lg md:rounded-none">
                         ADR
                       </th>
                     </tr>

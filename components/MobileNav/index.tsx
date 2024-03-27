@@ -5,18 +5,24 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { sidebarLinks } from "@/constants";
+import { useMediaQuery } from "usehooks-ts";
 
 function MobileNav() {
   const pathname = usePathname();
-  const isPeriodData = pathname === "/perioddetail";
-
+  const isPeriodDataandReservation =
+    pathname === "/perioddetail" || pathname === "/reservationforecast";
+  const islg = useMediaQuery("(min-width: 1120px)");
   return (
-    <section className={`bottombar fixed ${isPeriodData ? "" : "md:hidden"}`}>
+    <section
+      className={`bottombar fixed ${
+        isPeriodDataandReservation ? "" : "lg:hidden"
+      }`}
+    >
       <div className="bottombar_container">
         {sidebarLinks.map((link) => {
           const isActive =
             (pathname.includes(link.route) && link.route.length > 1) ||
-            pathname === link.route;
+            (pathname === "/" && link.route === "/actualdata");
 
           return (
             <Link
@@ -35,9 +41,11 @@ function MobileNav() {
               <p
                 className={`${
                   isActive ? "text-slate-50" : "text-[#737791]"
-                } max-sm:hidden text-subtle-medium`}
+                } max-sm:hidden lg:text-base-regular text-subtle-medium`}
               >
-                {link.label.split(" ")[0]}
+                {islg && isPeriodDataandReservation
+                  ? link.label
+                  : link.label.split(" ")[0]}
               </p>
             </Link>
           );

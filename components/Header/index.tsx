@@ -6,7 +6,9 @@ import { SignedIn, UserButton } from "@clerk/nextjs";
 function Header({ title }: { title: string }) {
   return (
     <div className="flex justify-between items-center border-[0.4px] solid px-12 py-6 shadow-lg rounded-md">
-      <h2 className="text-heading3-bold text-slate-500">{title}</h2>
+      <h2 className="sm:text-heading3-bold text-base-bold text-slate-500">
+        {title}
+      </h2>
 
       <div className="flex items-center gap-3">
         {/* <Image

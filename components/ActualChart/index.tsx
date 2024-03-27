@@ -23,7 +23,7 @@ function ActualChart() {
   const islg = useMediaQuery("(min-width: 1120px) and (max-width: 1379px)");
   const ismd = useMediaQuery("(min-width: 896px) and (max-width: 1119px)");
   const issm = useMediaQuery("(min-width: 696px) and (max-width: 895px)");
-  const isxs = useMediaQuery("(min-width: 396px) and (max-width: 698px)");
+  const isxs = useMediaQuery("(min-width: 469px) and (max-width: 698px)");
 
   useEffect(() => {
     if (isxl) {
@@ -45,6 +45,9 @@ function ActualChart() {
     if (isxs) {
       setWidth(350 - margin.left - margin.right);
       setHeight(300 - margin.top - margin.bottom);
+    } else {
+      setWidth(300 - margin.left - margin.right);
+      setHeight(250 - margin.top - margin.bottom);
     }
   }, [isxl, islg, ismd, issm, isxs]);
 

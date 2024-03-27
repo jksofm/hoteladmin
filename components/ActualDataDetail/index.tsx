@@ -41,7 +41,7 @@ function ActualDataDetail() {
   }
 
   return (
-    <div className="mt-6 shadow-lg px-12 py-6 border-[0.3px]">
+    <div className="mt-8 shadow-lg px-0 md:px-12 mb-20 lg:mb-4 py-6 border-[0.3px]">
       <FormContainer formContext={formContext} onSuccess={handleData}>
         <p className="text-heading3-bold text-center xl:text-left text-slate-500 mb-3">
           Manager Fash Report
