@@ -125,7 +125,7 @@ export const drawChart = (
   dot.append("text").attr("text-anchor", "middle").attr("y", -8);
 
   svg
-    .on("pointerenter", (e) => {})
+    .on("pointerenter", pointerentered)
     .on("pointermove", pointermoved)
     .on("pointerleave", pointerleft)
     .on("touchstart", (event) => event.preventDefault());
@@ -144,7 +144,7 @@ export const drawChart = (
   function pointermoved(event: PointerEvent) {
     const [xm, ym] = d3.pointer(event);
     const i = d3.leastIndex(points, ([x, y]) =>
-      Math.hypot((x as number) - xm, (y as number) - ym)
+      Math.hypot((x as any) - xm, (y as any) - ym)
     );
     const [x, y, k] = points[i as any];
     path
