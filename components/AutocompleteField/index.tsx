@@ -18,7 +18,7 @@ const AutocompleteField = () => {
   const [selectedProductIndex, setSelectedProductIndex] = useState<number>(-1);
   const [searchResults, setSearchResults] = useState<Product[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
-  console.log(products);
+  // console.log(products);
   useEffect(() => {
     const fetchProducts = async () => {
       const { data } = await axios.get("https://fakestoreapi.com/products");
