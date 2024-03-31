@@ -11,7 +11,7 @@ export default function NotFound() {
         className="px-4 py-6 rounded-md bg-primary-500 border text-white hover:opacity-80"
         href="/actualdata"
       >
-        Back to home
+        Back to home  
       </Link>
     </div>
   );
